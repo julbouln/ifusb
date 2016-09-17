@@ -1,0 +1,17 @@
+ifusb is a simple toolkit to access GPIO/UART/SPI/I2C from USB host through microcontroller.
+It was initialy attended for use with eink controller project, but can be used as a tool for any project, like a Bus Pirate board or a FT2232 chip.
+
+Firmware use libopencm3 and has been tested with STM32F042 microcontroller.
+PR 663 is needed for I2C on STM32F0 https://github.com/libopencm3/libopencm3/pull/663
+$ git fetch origin pull/663/head:pr-663
+$ git checkout pr-663
+
+Do not forget to edit OPENCM3_DIR in firmware/Makefine to your libopencm3 path.
+
+Host library use libusb 1.0.
+
+Finally, a reference design is available in hardware/ directory.
+
+TODO
+- UART RX + MIN
+
