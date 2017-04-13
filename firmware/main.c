@@ -70,6 +70,11 @@ static void systick_setup(void)
 
 static void gpio_setup(void)
 {
+	int pin;
+// set all gpio to input
+	for(pin=0;pin<6;pin++) {
+		gpio_mode_setup(gpio_map[pin][0], GPIO_MODE_INPUT, GPIO_PUPD_NONE, gpio_map[pin][1]);
+	}
 
 //	gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_PIN);
 }
@@ -178,7 +183,7 @@ void rcc_disable() {
 void sys_init() {
 
 	rcc_init();
-//	gpio_setup();
+	gpio_setup();
 //	systick_setup();
 
 
