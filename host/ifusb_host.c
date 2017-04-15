@@ -144,7 +144,7 @@ void _ifusb_cb_in(struct libusb_transfer *transfer)
     recv_bytes += transfer->actual_length;
     //submit the next transfer
     if (recv_bytes < transfer->length) {
-//      printf("ifusb async recv %d, %d remaining\n", recv_bytes, transfer->length-recv_bytes);
+      printf("ifusb async recv %d, %d remaining\n", recv_bytes, transfer->length-recv_bytes);
 
       r = libusb_submit_transfer(transfer_in);
     }
@@ -423,8 +423,8 @@ void ifusb_uart_send(uint8_t *data, int len) {
 }
 
 
-void ifusb_uart_recv(uint8_t *data, int len) {
-  ifusb_packet_read(data, len);
+int ifusb_uart_recv(uint8_t *data, int len) {
+  return ifusb_packet_read(data, len);
 }
 
 void ifusb_uart_set_baud_rate(int rate) {

@@ -1,0 +1,6 @@
+require 'rake/extensiontask'
+
+
+Rake::ExtensionTask.new "ifusb" do |ext|
+  ext.lib_dir = "lib/ifusb"
+end

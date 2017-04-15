@@ -12,6 +12,9 @@ Host library use libusb 1.0.
 
 Finally, a reference design is available in hardware/ directory.
 
+ifusb user access udev rules:
+SUBSYSTEM=="usb", ATTR{idVendor}=="f055", ATTR{idProduct}=="cafe", MODE="0666"
+
 TODO
 - UART RX + MIN
 
